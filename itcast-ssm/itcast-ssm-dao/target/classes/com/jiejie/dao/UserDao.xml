@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiejie.dao.UserDao">
+
+
+    <resultMap id="userMap" type="user">
+        <id property="id" column="id"/>
+        <collection property="roles" ofType="Role" column="id"
+                    select="com.jiejie.dao.RoleDao.findByUserId"/>
+    </resultMap>
+
+    <select id="findByUsername" parameterType="string" resultMap="userMap">
+        SELECT * FROM users where username = #{username}
+    </select>
+
+    <!--查询用户详情-->
+    <select id="findById" parameterType="string" resultMap="userMap">
+        SELECT * FROM users where  id= #{id}
+    </select>
+
+
+    <select id="findAll" resultType="user">
+        SELECT * FROM users
+    </select>
+
+    <insert id="save" parameterType="user">
+        insert into users(email,username,password,phoneNum,status) values(#{email},#{username},#{password},#{phoneNum},#{status})
+    </insert>
+</mapper>

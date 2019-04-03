@@ -1,0 +1,7 @@
+com\jiejie\dao\ProductDao.class
+com\jiejie\dao\OrdersDao.class
+com\jiejie\dao\MemberDao.class
+com\jiejie\dao\RoleDao.class
+com\jiejie\dao\UserDao.class
+com\jiejie\dao\PermissionDao.class
+com\jiejie\dao\TravellerDao.class
