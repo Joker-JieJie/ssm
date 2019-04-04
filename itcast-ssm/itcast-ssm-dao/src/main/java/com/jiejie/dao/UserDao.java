@@ -13,4 +13,6 @@ public interface UserDao {
     void save(User user);
 
     User findById(String id);
+
+    List<User> findByIdOtherRole(String id);
 }

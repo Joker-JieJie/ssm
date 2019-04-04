@@ -15,11 +15,12 @@
         SELECT * FROM users where username = #{username}
     </select>
 
+
+
     <!--查询用户详情-->
     <select id="findById" parameterType="string" resultMap="userMap">
         SELECT * FROM users where  id= #{id}
     </select>
-
 
     <select id="findAll" resultType="user">
         SELECT * FROM users

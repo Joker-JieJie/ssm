@@ -40,6 +40,7 @@
             </array>
         </property>
 
+
     </bean>
 
     <!--mapper管理交由spring来管理-->

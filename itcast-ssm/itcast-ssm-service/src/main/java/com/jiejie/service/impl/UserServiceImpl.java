@@ -60,4 +60,19 @@ public class UserServiceImpl implements UserService {
 
         return userDao.findById(id);
     }
+    //查询未添加的角色
+    public List<com.jiejie.domain.User> findByIdOtherRole(String id) {
+
+        return userDao.findByIdOtherRole(id);
+    }
+
+    //为用户添加角色
+    public void saveRole(String[] ids) {
+
+        for (String id : ids) {
+
+        }
+    }
+
+
 }

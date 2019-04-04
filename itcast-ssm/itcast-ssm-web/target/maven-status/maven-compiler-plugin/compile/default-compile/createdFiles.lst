@@ -1,3 +1,5 @@
 com\jiejie\controller\OrdersController.class
+com\jiejie\controller\RoleController.class
 com\jiejie\controller\ProductController.class
+com\jiejie\controller\PermissionController.class
 com\jiejie\controller\UserController.class

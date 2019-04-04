@@ -5,7 +5,18 @@
 <mapper namespace="com.jiejie.dao.PermissionDao">
 
 
+    <!--查询所有-->
+    <select id="findAll" resultType="permission">
+        SELECT * from permission
+    </select>
+
+    <!--根据ID查询-->
     <select id="findById" parameterType="string" resultType="permission">
         SELECT * from permission WHERE id in (SELECT permissionid FROM ROLE_PERMISSION WHERE roleid = #{rid})
     </select>
+
+    <!--添加-->
+    <insert id="save" parameterType="permission">
+        insert into PERMISSION(PERMISSIONNAME,URL) values(#{permissionName},#{url})
+    </insert>
 </mapper>

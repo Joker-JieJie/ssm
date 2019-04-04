@@ -1,6 +1,10 @@
+com\jiejie\service\impl\PermissionServiceImpl.class
 com\jiejie\service\UserService.class
 com\jiejie\service\impl\UserServiceImpl.class
 com\jiejie\service\ProductService.class
+com\jiejie\service\impl\RoleServiceImpl.class
+com\jiejie\service\RoleService.class
 com\jiejie\service\impl\ProductServiceImpl.class
+com\jiejie\service\PermissionService.class
 com\jiejie\service\OrdersService.class
 com\jiejie\service\impl\OrdersServiceImpl.class

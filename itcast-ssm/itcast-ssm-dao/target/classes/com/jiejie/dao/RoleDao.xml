@@ -5,6 +5,13 @@
 
 <mapper namespace="com.jiejie.dao.RoleDao">
 
+
+    <!--查询所有-->
+    <select id="findAll" resultType="role">
+    SELECT * FROM role
+    </select>
+
+    <!--根据ID查询-->
     <resultMap id="roleMap" type="role">
         <id property="id" column="id"/>
         <collection property="permissions" ofType="permissions" column="id"
@@ -13,4 +20,16 @@
     <select id="findByUserId" parameterType="string" resultMap="roleMap">
       SELECT * FROM role WHERE id IN (SELECT roleid FROM users_role WHERE userid = #{id})
     </select>
+
+
+    <!--查询用户没有拥有的角色-->
+    <select id="findByIdOtherRole" parameterType="string" resultType="role">
+        SELECT * FROM role WHERE id NOT IN (SELECT roleid FROM users_role WHERE userid = #{id})
+    </select>
+
+
+    <!--//添加角色-->
+    <insert id="save" parameterType="role">
+        insert into role(rolename,roledesc) values(#{roleName},#{roleDesc})
+    </insert>
 </mapper>
