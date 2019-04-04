@@ -1,6 +1,7 @@
 package com.jiejie.service.impl;
 
 import com.jiejie.dao.UserDao;
+import com.jiejie.dao.User_RoleDao;
 import com.jiejie.domain.Role;
 import com.jiejie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private User_RoleDao user_roleDao;
+
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -60,6 +65,7 @@ public class UserServiceImpl implements UserService {
 
         return userDao.findById(id);
     }
+
     //查询未添加的角色
     public List<com.jiejie.domain.User> findByIdOtherRole(String id) {
 
@@ -67,10 +73,10 @@ public class UserServiceImpl implements UserService {
     }
 
     //为用户添加角色
-    public void saveRole(String[] ids) {
+    public void saveRole(String uid, String[] ids) {
 
         for (String id : ids) {
-
+            user_roleDao.saveRole(uid, id);
         }
     }
 

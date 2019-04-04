@@ -59,13 +59,12 @@ public class UserController {
         return "user-role-add";
     }
 
-    //添加角色
+    //给指定用户添加角色
     @RequestMapping("/saveRole")
-    public String saveRole(String[] ids, Model model) {
+    public String saveRole(String userId, String[] ids) {
 
-        userService.saveRole(ids);
-
-        return "user-role-add";
+        userService.saveRole(userId, ids);
+        return "redirect:/user/findAll";
     }
 
 }
